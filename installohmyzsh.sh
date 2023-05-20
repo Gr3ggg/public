@@ -1,18 +1,24 @@
 #!/bin/bash
 
-if dpkg -s zsh &> /dev/null; then
-    read -p "zsh est déjà installé. Voulez-vous le supprimer et le réinstaller ? (y/n) " -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        sudo apt remove -y zsh zsh-autosuggestions zsh-syntax-highlighting
-    else
-        exit 1
-    fi
+# Vérifier si l'utilisateur est root
+if [[ $EUID -ne 0 ]]; then
+   echo "Ce script doit être exécuté en tant que root" 
+   exit 1
 fi
 
-sudo apt install -y zsh zsh-syntax-highlighting zsh-autosuggestions
+# Mettre à jour le système
+apt update
+apt upgrade -y
 
-sudo chsh -s $(which zsh) $USER
+# Installer les dépendances
+apt install -y zsh git
+
+# Changer le shell par défaut pour zsh
+chsh -s $(which zsh)
+
+# Télécharger et installer oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 
 rm -f ~/.zshrc
 
@@ -160,5 +166,8 @@ alias wzsh='wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && 
 
 EOF
 
-echo "Installation terminée."
-exec zsh
+# Charger les modifications
+source ~/.zshrc
+
+echo "L'installation de oh-my-zsh est terminée. Veuillez vous déconnecter et vous reconnecter pour utiliser zsh."
+
