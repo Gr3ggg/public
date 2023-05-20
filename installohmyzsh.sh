@@ -152,8 +152,8 @@ alias upd='apt update'
 alias upg='apt upgrade -y'
 alias upa='apt update -y && apt upgrade -y && apt autoremove -y'
 
-#alias rwzsh='rm installzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installzsh.sh && chmod +x installzsh.sh'
-#alias wzsh='wget https://github.com/Gr3ggg/public/raw/main/installzsh.sh && chmod +x installzsh.sh'
+alias rwzsh='rm installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh'
+alias wzsh='wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh'
 
 
 EOF
