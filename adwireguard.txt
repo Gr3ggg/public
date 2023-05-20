@@ -33,4 +33,3 @@ services:
     networks:
       npmproxy:
         ipv4_address: 172.18.1.1
-
