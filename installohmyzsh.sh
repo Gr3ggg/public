@@ -25,7 +25,7 @@ cat << 'EOF' >> ~/.zshrc
 
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="gnzsh"
+ZSH_THEME="gnzh"
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
@@ -139,7 +139,7 @@ fi
     ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
-  fi
+
   else
     PROMPT='${debian_chroot:+($debian_chroot)}%n@%m:%~%# '
   fi
