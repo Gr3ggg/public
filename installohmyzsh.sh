@@ -166,7 +166,7 @@ alias wzsh='wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && 
 EOF
 
 # Charger les modifications
-source ~/.zshrc
+exec zsh && source ~/.zshrc
 
 echo "L'installation de oh-my-zsh est terminée. Veuillez vous déconnecter et vous reconnecter pour utiliser zsh."
 
