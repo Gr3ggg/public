@@ -7,5 +7,5 @@ funny_msg() {
   echo "Merci de votre coopération!"
 }
 
-# Appel de la fonction pour afficher le message drôle
+# Appel de la fonction pour afficher le message drôle ou pas 
 funny_msg
