@@ -146,8 +146,8 @@ fi
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
-  else
-    PROMPT='${debian_chroot:+($debian_chroot)}%n@%m:%~%# '
+#  else
+#    PROMPT='${debian_chroot:+($debian_chroot)}%n@%m:%~%# '
   fi
 
 #alias l='ls -l'
