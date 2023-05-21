@@ -12,3 +12,4 @@ funny_msg() {
 
 #LOL
 #test
+#ok
