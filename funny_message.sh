@@ -10,3 +10,4 @@ funny_msg() {
 # Appel de la fonction pour afficher le message drôle ou pas 
 ./funny_msg
 
+#LOL
