@@ -11,3 +11,4 @@ funny_msg() {
 ./funny_msg
 
 #LOL
+#test
