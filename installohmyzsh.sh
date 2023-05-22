@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#pour executer ce script directement copier/coller: rm -f install_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/install_ohmyzsh.sh && chmod +x install_ohmyzsh.sh && ./install_ohmyzsh.sh
+#pour executer ce script directement copier/coller: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
 
 
 rm -f "modif_ohmyzsh.sh"
