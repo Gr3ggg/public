@@ -25,8 +25,8 @@ echo "Installation d'Oh My Zsh..."
 yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-rm -rf /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-rm -rf /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+rm -rf /$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+rm -rf /$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 rm -f ~/.zshrc
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
