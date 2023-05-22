@@ -152,3 +152,5 @@ echo "L'installation de oh-my-zsh est terminée. Veuillez vous déconnecter et v
 
 # Charger les modifications
 exec zsh && source ~/.zshrc
+
+exit 0
