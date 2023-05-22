@@ -189,8 +189,8 @@ RPROMPT=$'%F{cyan}[%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F
     ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 
-#  else
-#    PROMPT='${debian_chroot:+($debian_chroot)}%n@%m:%~%# '
+  else
+    PROMPT='${debian_chroot:+($debian_chroot)}%n@%m:%~%# '
   fi
 
 # You may need to manually set your language environment
