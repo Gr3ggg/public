@@ -24,7 +24,8 @@ rm -rf /$HOME/.oh-my-zsh
 
 # Installation d'Oh My Zsh
 echo "Installation d'Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Terminé ! Veuillez redémarrer votre session ou ouvrir un nouvel onglet/terminal pour utiliser Oh My Zsh. ensuite executer cette commande ./modif_ohmyzsh.sh"
 
