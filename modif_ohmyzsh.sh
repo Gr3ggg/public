@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#pour executer ce script directement copier/coller: rm -f modif_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh
+
+
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 rm -f ~/.zshrc
