@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # DL pour la suite
 if [[ -e "modif_ohmyzsh.sh" ]]; then

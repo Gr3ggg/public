@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 rm -f ~/.zshrc
