@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#pour executer ce script directement copier/coller: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
+# copier/coller ds votre Shell: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
 
 # Vérification des dépendances
 echo "Installation des dépendances..."
