@@ -17,6 +17,7 @@ echo "Changement du shell par défaut en Zsh..."
 chsh -s $(which zsh)
 
 rm -rf /$HOME/.oh-my-zsh
+rm -f ~/.zshrc
 
 # Installation d'Oh My Zsh
 echo "Installation d'Oh My Zsh..."
