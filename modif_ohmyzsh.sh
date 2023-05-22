@@ -15,6 +15,12 @@ ZSH_THEME="gnzh"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
+setopt EXTENDED_HISTORY
+HISTFILE=/$HOME/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S"
+
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     # We have color support; assume it's compliant with Ecma-48
@@ -28,10 +34,7 @@ fi
 
 
 force_color_prompt=yes
-#autoload -U colors && colors
-
-
-
+autoload -U colors && colors
 
 
 prompt_ipmachine() {
@@ -44,18 +47,18 @@ prompt_ipclient() {
 }
 
 
-#les USER & IP en rouge ou vert suivant le user
+#les USERs  en rouge ou vert suivant le user
 
 if [[ $EUID -eq 0 ]]; then
 
-        PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -[%F{red}$(prompt_ipmachine)%F{cyan}]-[%F{black}$(prompt_ipclient)%F{cyan}]- [%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}]\n╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
+        PROMPT=$'%F{cyan}╭───────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -[%F{red}$(prompt_ipmachine)%F{cyan}]-[%F{black}$(prompt_ipclient)%F{cyan}]- [%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}]\n╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
 else
-        PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -[%F{green}$(prompt_ipmachine)%F{cyan}]-[%F{black}$(prompt_ipclient)%F{cyan}]- [%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}]\n╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
+        PROMPT=$'%F{cyan}╭───────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -[%F{green}$(prompt_ipmachine)%F{cyan}]-[%F{black}$(prompt_ipclient)%F{cyan}]- [%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}]\n╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
 fi
 
 
 
-#les USER & crochets en rouge ou vert suivant le user
+#les USERs & crochets en rouge ou vert suivant le user
 
 #if [[ $EUID -eq 0 ]]; then
 #        PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -%F{red}[%F{black}$(prompt_ipmachine)%F{red}]%F{cyan}-%F{red}[%F{magenta}%D{%d/%m/%Y %H:%M:%S}%F{red}]%F{cyan}-%F{red}[%F{black}$(prompt_ipclient)%F{red}]%F{cyan}- %F{red}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{red}]\n%F{cyan}╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
@@ -64,7 +67,7 @@ fi
 #fi
 
 
-#les USER & IP & crochets en rouge ou vert suivant le user
+#les USERs & IPs & crochets en rouge ou vert suivant le user
 
 #if [[ $EUID -eq 0 ]]; then
 #        PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -%F{red}[%F{red}$(prompt_ipmachine)%F{red}]%F{cyan}-%F{red}[%F{magenta}%D{%d/%m/%Y %H:%M:%S}%F{red}]%F{cyan}-%F{red}[%F{black}$(prompt_ipclient)%F{red}]%F{cyan}- %F{red}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{red}]\n%F{cyan}╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
@@ -72,7 +75,7 @@ fi
 #        PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -%F{green}[%F{green}$(prompt_ipmachine)%F{green}]%F{cyan}-%F{green}[%F{magenta}%D{%d/%m/%Y %H:%M:%S}%F{green}]%F{cyan}-%F{green}[%F{black}$(prompt_ipclient)%F{green}]%F{cyan}- %F{green}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{green}]\n%F{cyan}╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
 #fi
 
-RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)%F{cyan}[%F{magenta}%D{%d/%m/%Y %H:%M}%F{cyan}]'
+RPROMPT=$'%F{cyan}[%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)%F{cyan}]%F{cyan}[%F{magenta}%D{%d/%m/%Y %H:%M}%F{cyan}]'
 
     # enable syntax-highlighting
   if [ -f /$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && [ "$color_prompt" = yes ]; then
