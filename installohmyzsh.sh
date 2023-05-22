@@ -2,10 +2,6 @@
 
 #pour executer ce script directement copier/coller: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
 
-
-rm -f "modif_ohmyzsh.sh"
-wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh
-
 # Vérification des dépendances
 echo "Installation des dépendances..."
 if [[ $(command -v git) && $(command -v zsh) ]]; then
@@ -13,7 +9,7 @@ if [[ $(command -v git) && $(command -v zsh) ]]; then
 else
   echo "Installation des dépendances..."
   sudo apt update
-  sudo apt install -y git zsh
+  sudo apt install -y git zsh curl
 fi
 
 # Changement du shell par défaut en Zsh
