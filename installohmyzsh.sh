@@ -59,10 +59,16 @@ fi
 force_color_prompt=yes
 autoload -U colors && colors
 
+# pour debian et ubuntu
 prompt_ipmachine() {
-    local ip=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
+    local ip=$(ip route | awk '/link src/ {print $9}')
     echo -n "${ip:-N/A}"
 }
+# pour debian
+#prompt_ipmachine() {
+#    local ip=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
+#    echo -n "${ip:-N/A}"
+#}
 
 prompt_ipclient() {
     echo "${SSH_CLIENT%% *}" | awk '{$1=$1};1'
