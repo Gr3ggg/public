@@ -28,4 +28,4 @@ chsh -s $(which zsh)
 echo "Installation d'Oh My Zsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "Terminé ! Veuillez redémarrer votre session ou ouvrir un nouvel onglet/terminal pour utiliser Oh My Zsh."
+echo "Terminé ! Veuillez redémarrer votre session ou ouvrir un nouvel onglet/terminal pour utiliser Oh My Zsh. ensuite executer cette commande ./modif_ohmyzsh.sh"
