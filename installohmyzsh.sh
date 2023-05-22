@@ -41,8 +41,8 @@ source $ZSH/oh-my-zsh.sh
 
 setopt EXTENDED_HISTORY
 HISTFILE=/$HOME/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=999999
+SAVEHIST=999999
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S"
 
 if [ -n "$force_color_prompt" ]; then
