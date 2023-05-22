@@ -1,13 +1,6 @@
 #!/bin/sh
 
-# DL pour la suite
-if [[ -e "modif_ohmyzsh.sh" ]]; then
-  echo "Le fichier existe. Suppression en cours..."
-  rm "modif_ohmyzsh.sh"
-  echo "Le fichier a été supprimé avec succès."
-else
-  echo "Le fichier n'existe pas."
-fi
+rm -f "modif_ohmyzsh.sh"
 wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh
 
 # Vérification des dépendances
