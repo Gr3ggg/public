@@ -155,7 +155,7 @@ if [[ -e "$fich1er" ]]; then
 else
 
   echo "Le fichier n'existe pas."
-  alias wzsh='rm -f modif_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh'
+  alias wzsh='rm -f install_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/install_ohmyzsh.sh && chmod +x install_ohmyzsh.sh && rm -f modif_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh'
 
 fi
 
