@@ -17,16 +17,13 @@ sudo chsh -s $(which zsh) $USER
 rm -f ~/.zshrc
 
 
-force_color_prompt=yes
-autoload -U colors && colors
-
-
 echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 
 cat << 'EOF' >> ~/.zshrc
 
-
+force_color_prompt=yes
+autoload -U colors && colors
 
 prompt_ipmachine() {
     local ip=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
