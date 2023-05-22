@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# script pour Debian et Ubuntu
 # copier/coller ds votre Shell: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
 
 # Vérification des dépendances
