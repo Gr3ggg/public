@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#pour executer ce script directement copier/coller: rm -f install_zsh.sh && wget https://github.com/Gr3ggg/public/raw/main/install_zsh.sh && chmod +x install_zsh.sh && ./install_zsh.sh
+
 if dpkg -s zsh &> /dev/null; then
     read -p "zsh est déjà installé. Voulez-vous le supprimer et le réinstaller ? (y/n) " -n 1 -r
     echo
