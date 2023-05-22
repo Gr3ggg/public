@@ -69,9 +69,6 @@ force_color_prompt=yes
 autoload -U colors && colors
 
 
-
-
-
 prompt_ipmachine() {
     local ip=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
     echo -n "${ip:-N/A}"
