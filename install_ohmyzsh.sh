@@ -47,6 +47,12 @@ ZSH_THEME="gnzh"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
+setopt EXTENDED_HISTORY
+HISTFILE=/$HOME/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S"
+
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     # We have color support; assume it's compliant with Ecma-48
