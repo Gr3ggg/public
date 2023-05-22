@@ -18,17 +18,17 @@ apt install -y zsh git
 chsh -s $(which zsh)
 
 # Créer un nouveau screen
-screen_name="mon_screen"
-screen -dmS "$screen_name"
+screen_install="mon_screen"
+screen -dmS "$screen_install"
 
 # Attacher au screen et exécuter la commande
-screen -S "$screen_name" -X stuff "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" "$(printf \\r)" "
+screen -S "$screen_install" -X stuff "sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\" "$(printf \\r)" "
 
 # Attendre 5 minutes
 sleep 1m
 
 # Tuer le screen
-screen -S "$screen_name" -X quit
+screen -S "$screen_install" -X quit
 
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -60,7 +60,7 @@ fi
 
 
 force_color_prompt=yes
-#autoload -U colors && colors
+autoload -U colors && colors
 
 
 
