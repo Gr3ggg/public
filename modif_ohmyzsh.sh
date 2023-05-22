@@ -141,9 +141,23 @@ alias upd='apt update'
 alias upg='apt upgrade -y'
 alias upa='apt update -y && apt upgrade -y && apt autoremove -y'
 
-alias rwzsh='rm modif_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh'
-alias wzsh='wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh'
 
+
+# Chemin vers le fichier à supprimer
+fich1er="/$HOME/modif_ohmyzsh.sh"
+
+# Vérification si le fichier existe
+if [[ -e "$fich1er" ]]; then
+
+  echo "Le fichier existe. Suppression en cours..."
+  alias wzsh='rm modif_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh'
+  echo "Le fichier a été supprimé avec succès et l'alias wzsh a été créé."
+else
+
+  echo "Le fichier n'existe pas."
+  alias wzsh='rm -f modif_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh'
+
+fi
 
 EOF
 
