@@ -23,8 +23,6 @@ echo "Installation d'Oh My Zsh..."
 yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-
-
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 rm -rf /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 rm -f ~/.zshrc
@@ -32,9 +30,7 @@ rm -f ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-
 cat << 'EOF' >> ~/.zshrc
-
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="gnzh"
@@ -59,10 +55,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
 force_color_prompt=yes
 autoload -U colors && colors
-
 
 prompt_ipmachine() {
     local ip=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
@@ -72,7 +66,6 @@ prompt_ipmachine() {
 prompt_ipclient() {
     echo "${SSH_CLIENT%% *}" | awk '{$1=$1};1'
 }
-
 
 #les USERs  en rouge ou vert suivant le user
 
@@ -159,14 +152,11 @@ RPROMPT=$'%F{cyan}[%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F
 #alias ll='ls -la'
 #alias la='ls -lA'
 
-
-
 alias upd='apt update'
 alias upg='apt upgrade -y'
 alias upa='apt update -y && apt upgrade -y && apt autoremove -y'
 
 alias wzsh='rm -f install_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/install_ohmyzsh.sh && chmod +x install_ohmyzsh.sh && rm -f modif_ohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/modif_ohmyzsh.sh && chmod +x modif_ohmyzsh.sh && ./modif_ohmyzsh.sh'
-
 
 EOF
 
