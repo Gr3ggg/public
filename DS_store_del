@@ -40,4 +40,7 @@ env EDITOR=nano crontab -e
 # *  *  *  *  * user-name command to be executed
  15 19  *  *  * root find /$HOME -name ".DS_Store" -depth -exec rm {} \; 
 
- # "ctrl + o" "enter" "ctrl + x"
+ # "ctrl + o" "enter" "ctrl + x" 
+
+ # crontab -l pour voir 
+ # crontab -r pour supprimer
