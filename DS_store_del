@@ -1,12 +1,14 @@
 #!/bin/sh
 
-# manuellement
+# manuellement en modifiant le $PATH
 sudo find /$PATH -name ".DS_Store" -depth -exec rm {} \;
 
 ##############################################
 
 # auto
-
 sudo crontab -e
 
+# appuyer sur "i" et coller le texte suivant en modifiant le $PATH
 15 19 * * * root find /$PATH -name ".DS_Store" -depth -exec rm {} \;
+
+# ensuite appuyer sur "echap" et ":wq"
