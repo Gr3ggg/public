@@ -6,9 +6,10 @@ sudo find /$HOME -name ".DS_Store" -depth -exec rm {} \;
 
 ##############################################
 
+# echo "15  19  *  *  * find /$HOME -name \".DS_Store\" -depth -exec rm {} \\;" | sudo tee -a /etc/crontab > /dev/null
+
 # auto avec crontab - methode 1 
 sudo crontab -e
-# echo "15 19 * * * root find /$HOME -name \".DS_Store\" -depth -exec rm {} \\;" | sudo tee -a /etc/crontab > /dev/null
 
 # appuyer sur "i" et coller le texte suivant en modifiant le $HOME si besoin
 
