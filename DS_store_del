@@ -1,4 +1,5 @@
 #!/bin/sh
+# script pour Mac M1
 
 # manuel en modifiant le $HOME si besoin
 sudo find /$HOME -name ".DS_Store" -depth -exec rm {} \;
