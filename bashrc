@@ -90,7 +90,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -Ahl'
-alias la='ls -Ahl'
+alias la='ls -ahl'
 alias l='ls -CF'
 
 alias qmdestroy='function _qmdestroyrange() { for ((i=$1; i<=$2; i++)); do qm destroy 1$i; done }; _qmdestroyrange'
