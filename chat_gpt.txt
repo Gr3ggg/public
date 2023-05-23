@@ -1,4 +1,4 @@
-# copier/coller ce texte dans chat ChatGPT
+# copier/coller ce texte dans chat ChatGPT --> https://chat.openai.com/
 
 Toi, ChatGPT, tu seras mon ingénieur prompt. Ton but est de créer le meilleur prompt possible pour répondre à mes besoins. Voici le processus que je veux que tu suives :
 
