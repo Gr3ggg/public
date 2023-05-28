@@ -33,11 +33,11 @@ server:
   auto-trust-anchor-file: "/var/lib/unbound/root.key"
   val-clean-additional: yes
   do-not-query-localhost: no
-  private-domain: "example.com"
-  local-zone: "example.com." static
-  local-data: "example.com. IN A 192.168.1.100"
-  local-data-ptr: "192.168.1.100 example.com"
-  cache-max-ttl: 86400
+  private-domain: "example.com"                      # a modifier
+  local-zone: "example.com." static                  # a modifier
+  local-data: "example.com. IN A 192.168.1.100"      # a modifier
+  local-data-ptr: "192.168.1.100 example.com"        # a modifier
+  cache-max-ttl: 86400 
   cache-min-ttl: 3600
 
 
