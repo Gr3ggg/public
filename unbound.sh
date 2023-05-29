@@ -1,7 +1,17 @@
 #!/bin/bash
 
 # copier/coller ds votre Shell: rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh
-alias wunbound='rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'
+# Déterminer le shell actuel
+shell=$(basename "$SHELL")
+
+# Vérifier le shell et sourcer le fichier de configuration approprié
+if [ "$shell" = "bash" ]; then
+    echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.bashrc
+    source ~/.bashrc
+elif [ "$shell" = "zsh" ]; then
+    echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.zshrc
+    source ~/.zshrc
+fi
 
 # Mise à jour du système
 apt update
@@ -13,10 +23,13 @@ apt install wget unbound -y
 # Arrêt du service Unbound
 systemctl stop unbound
 
+# Récupérer l'adresse IP de la machine
+IP_machine=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+
 # Configuration d'Unbound
 cat << EOF > /etc/unbound/unbound.conf
 server:
-  interface: 0.0.0.0
+  interface: $IP_machine
   port: 53
   do-ip4: yes
   do-ip6: yes
@@ -119,3 +132,11 @@ systemctl start unbound
 
 # Vérification du statut du service
 systemctl status unbound
+
+# Sourcing automatique du fichier de configuration
+if [ "$shell" = "bash" ]; then
+    exec bash
+elif [ "$shell" = "zsh" ]; then
+    exec zsh
+fi
+
