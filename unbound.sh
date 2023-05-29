@@ -22,17 +22,10 @@ server:
   do-ip6: yes
   do-udp: yes
   do-tcp: yes
-  access-control: 10.0.0.0/8 allow
-  access-control: 2a01:e0a:477:9df0::1/64 allow
-  access-control: 2a01:e0a:477:9df1::1/64 allow
-  access-control: 2a01:e0a:477:9df2::1/64 allow
-  access-control: 2a01:e0a:477:9df3::1/64 allow  
-  access-control: 2a01:e0a:477:9df4::1/64 allow  
-  access-control: 2a01:e0a:477:9df5::1/64 allow  
-  access-control: 2a01:e0a:477:9df6::1/64 allow  
-  access-control: 2a01:e0a:477:9df7::1/64 allow
-  access-control: 0.0.0.0/0 refuse
-  access-control: ::/0 refuse
+  access-control: 0.0.0.0/0 allow       ## mettre votre reseau local ipv4
+  access-control: ::/64 allow           ## mettre votre reseau local ipv6
+  #access-control: 0.0.0.0/0 refuse     ## décommenter si reseau local renseigné
+  #access-control: ::/0 refuse          ## décommenter si reseau local renseigné
   do-daemonize: yes
   verbosity: 3
   hide-identity: yes
