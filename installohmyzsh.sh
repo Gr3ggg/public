@@ -2,10 +2,11 @@
 
 # script pour Debian et Ubuntu
 # copier/coller ds votre Shell: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
+alias wzsh='rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh'
 
 # Vérification des dépendances
 echo "Installation des dépendances..."
-if [[ $(command -v git) && $(command -v zsh) ]]; then
+if [[ $(command -v git) && $(command -v zsh) && $(command -v curl) ]]; then
   echo "Dépendances déjà installées."
 else
   echo "Installation des dépendances..."
@@ -211,8 +212,6 @@ RPROMPT=$'%F{cyan}[%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F
 alias upd='apt update'
 alias upg='apt upgrade -y'
 alias upa='apt update -y && apt upgrade -y && apt autoremove -y'
-
-alias wzsh='rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh'
 
 EOF
 
