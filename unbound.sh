@@ -8,7 +8,7 @@ apt update
 apt upgrade -y
 
 # Installation d'Unbound
-apt install unbound -y
+apt install wget unbound -y
 
 # Arrêt du service Unbound
 systemctl stop unbound
