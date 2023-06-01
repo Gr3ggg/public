@@ -103,6 +103,7 @@ EOF
 
 # Téléchargement des serveurs root
 wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache
+(crontab -l | grep -v "wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache" ; echo "0  0  1  */3  *  wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache") | crontab -
 
 # Définition des permissions sur le fichier de configuration et les serveurs root
 chown unbound:unbound /etc/unbound/unbound.conf
