@@ -146,4 +146,5 @@ elif [ "$shell" = "zsh" ]; then
     exec zsh
 fi
 
-quit
+echo "L'installation de Unbound est terminée."
+exit 0
