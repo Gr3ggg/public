@@ -129,6 +129,10 @@ sed -i "3s/.*/nameserver $IP_machine/" /etc/resolv.conf
 echo "nameserver 1.1.1.1" >> /etc/resolv.conf
 echo "#nameserver 1.0.0.1" >> /etc/resolv.conf
 
+# correction de bug
+echo "/var/log/unbound/unbound.log rw," > /etc/apparmor.d/local/usr.sbin.unbound
+apparmor_parser -r /etc/apparmor.d/usr.sbin.unbound
+
 # Démarrage du service Unbound
 systemctl start unbound
 
@@ -142,3 +146,4 @@ elif [ "$shell" = "zsh" ]; then
     exec zsh
 fi
 
+exit 
