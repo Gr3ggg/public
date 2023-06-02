@@ -146,4 +146,4 @@ elif [ "$shell" = "zsh" ]; then
     exec zsh
 fi
 
-exit 
+quit
