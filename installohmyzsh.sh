@@ -139,7 +139,7 @@ prompt_ipclient() {
                   # en 1 ligne
 
                     if [[ $EUID -eq 0 ]]; then
-                      PROMPT=$'%F{cyan}${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) %F{cyan}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}] %F{cyan}-%F{red}▶%b%F{reset}'
+                      PROMPT=$'%F{cyan}${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -[%F{red}$(prompt_ipmachine)%F{cyan}]- %F{cyan}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}] %F{cyan}-%F{red}▶%b%F{reset}'
                     else
                       PROMPT=$'%F{cyan}${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) %F{cyan}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}] %F{cyan}-%F{green}▶%b%F{reset}'
                     fi
