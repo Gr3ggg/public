@@ -34,7 +34,7 @@ systemctl stop unbound
 IP_machine=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 
 # Configuration d'Unbound
-cat << EOF > /etc/unbound/unbound.conf
+cat << EOF > /etc/unbound/unbound.conf.d/config.conf
 server:
   interface: $IP_machine
   port: 53
