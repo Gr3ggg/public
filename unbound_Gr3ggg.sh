@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# copier/coller ds votre Shell: cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh
+# copier/coller ds votre Shell: cd && rm -f unbound_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_Gr3ggg.sh && chmod +x unbound_Gr3ggg.sh && ./unbound_Gr3ggg.sh
 
 # Déterminer le shell actuel
 shell=$(basename "$SHELL")
@@ -8,14 +8,14 @@ shell=$(basename "$SHELL")
 # Vérifier le shell et sourcer le fichier de configuration approprié
 if [ "$shell" = "bash" ]; then
     # Vérifier si la ligne existe déjà dans .bashrc
-    if ! grep -q "alias wwunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.bashrc; then
-        echo "alias wwunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.bashrc
+    if ! grep -q "alias wwunbound='cd && rm -f unbound_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_Gr3ggg.sh && chmod +x unbound_Gr3ggg.sh && ./unbound_Gr3ggg.sh'" ~/.bashrc; then
+        echo "alias wwunbound='cd && rm -f unbound_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_Gr3ggg.sh && chmod +x unbound_Gr3ggg.sh && ./unbound_Gr3ggg.sh'" >> ~/.bashrc
     fi
     source ~/.bashrc
 elif [ "$shell" = "zsh" ]; then
     # Vérifier si la ligne existe déjà dans .zshrc
-    if ! grep -q "alias wwunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.zshrc; then
-        echo "alias wwunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.zshrc
+    if ! grep -q "alias wwunbound='cd && rm -f unbound_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_Gr3ggg.sh && chmod +x unbound_Gr3ggg.sh && ./unbound_Gr3ggg.sh'" ~/.zshrc; then
+        echo "alias wwunbound='cd && rm -f unbound_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_Gr3ggg.sh && chmod +x unbound_Gr3ggg.sh && ./unbound_Gr3ggg.sh'" >> ~/.zshrc
     fi
     source ~/.zshrc
 fi

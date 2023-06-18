@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # script pour Debian et Ubuntu
-# copier/coller ds votre Shell: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
+# copier/coller ds votre Shell: rm -f installohmyzsh_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh_Gr3ggg.sh && chmod +x installohmyzsh_Gr3ggg.sh && ./installohmyzsh_Gr3ggg.sh
 
 
 # Vérification des dépendances
@@ -220,8 +220,8 @@ prompt_ipclient() {
 alias upd='apt update'
 alias upg='apt upgrade -y'
 alias upa='apt update -y && apt upgrade -y && apt autoremove -y'
-alias wzsh='rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh'
-alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'
+alias wwzsh='rm -f installohmyzsh_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh_Gr3ggg.sh && chmod +x installohmyzsh_Gr3ggg.sh && ./installohmyzsh_Gr3ggg.sh'
+alias wwunbound='cd && rm -f unbound_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_Gr3ggg.sh && chmod +x unbound_Gr3ggg.sh && ./unbound_Gr3ggg.sh'
 
 EOF
 
