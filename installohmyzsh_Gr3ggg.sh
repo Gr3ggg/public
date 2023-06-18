@@ -3,7 +3,6 @@
 # script pour Debian et Ubuntu
 # copier/coller ds votre Shell: rm -f installohmyzsh_Gr3ggg.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh_Gr3ggg.sh && chmod +x installohmyzsh_Gr3ggg.sh && ./installohmyzsh_Gr3ggg.sh
 
-
 # Vérification des dépendances
 echo "Installation des dépendances..."
 if [[ $(command -v git) && $(command -v zsh) && $(command -v curl) ]]; then
