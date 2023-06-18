@@ -7,16 +7,22 @@ shell=$(basename "$SHELL")
 
 # Vérifier le shell et sourcer le fichier de configuration approprié
 if [ "$shell" = "bash" ]; then
-    echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.bashrc
+    # Vérifier si la ligne existe déjà dans .bashrc
+    if ! grep -q "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.bashrc; then
+        echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.bashrc
+    fi
     source ~/.bashrc
 elif [ "$shell" = "zsh" ]; then
-    echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.zshrc
+    # Vérifier si la ligne existe déjà dans .zshrc
+    if ! grep -q "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.zshrc; then
+        echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.zshrc
+    fi
     source ~/.zshrc
 fi
 
+
 # Mise à jour du système
-apt update
-apt upgrade -y
+apt update && apt upgrade -y && apt autoremove -y
 
 # Installation d'Unbound
 apt install wget unbound -y
@@ -36,24 +42,26 @@ server:
   do-ip6: yes
   do-udp: yes
   do-tcp: yes
+  # Set number of threads to use
+  num-threads: 1
   access-control: 0.0.0.0/0 allow       ## mettre votre reseau local ipv4
   access-control: ::/64 allow           ## mettre votre reseau local ipv6
   #access-control: 0.0.0.0/0 refuse     ## décommenter si reseau local renseigné
   #access-control: ::/0 refuse          ## décommenter si reseau local renseigné
   do-daemonize: yes
   verbosity: 3
+  # Hide DNS Server info
   hide-identity: yes
   hide-version: yes
+  # Limit DNS Fraud and use DNSSEC
   harden-glue: yes
   harden-dnssec-stripped: yes
-  auto-trust-anchor-file: "/var/lib/unbound/root.key"
   use-caps-for-id: yes
   cache-min-ttl: 3600
   cache-max-ttl: 86400
   minimal-responses: yes
   prefetch: yes
   prefetch-key: yes
-  num-threads: 6
   rrset-roundrobin: yes
   msg-cache-slabs: 16
   rrset-cache-slabs: 16
@@ -102,11 +110,11 @@ local-data: "ask.com A 127.0.0.1"
 EOF
 
 # Téléchargement des serveurs root
-wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache
-(crontab -l | grep -v "wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache" ; echo "0  0  1  */3  *  wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache") | crontab -
+wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.root
+(crontab -l | grep -v "wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.root" ; echo "0  0  1  */3  *  wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.root") | crontab -
 
 # Définition des permissions sur le fichier de configuration et les serveurs root
-chown unbound:unbound /etc/unbound/unbound.conf
+chown unbound:unbound /etc/unbound/ -R
 chown unbound:unbound /var/lib/unbound/root.hints
 mkdir /var/log/unbound
 chown unbound:unbound /var/log/unbound
@@ -133,11 +141,21 @@ echo "#nameserver 1.0.0.1" >> /etc/resolv.conf
 echo "/var/log/unbound/unbound.log rw," > /etc/apparmor.d/local/usr.sbin.unbound
 apparmor_parser -r /etc/apparmor.d/usr.sbin.unbound
 
+# Augmente la taille du tampon de réception maximale
+  # Vérifie si la ligne "net.core.rmem_max = 1048576" existe déjà dans /etc/sysctl.conf
+  if ! grep -q "net.core.rmem_max = 1048576" /etc/sysctl.conf; then
+      # Ajoute la ligne à /etc/sysctl.conf
+      echo "net.core.rmem_max = 1048576" >> /etc/sysctl.conf
+
+      # Applique les modifications du fichier sysctl.conf
+      sysctl -p
+  fi
+
 # Démarrage du service Unbound
 systemctl start unbound
 
 # Vérification du statut du service
-systemctl status unbound
+systemctl --no-pager status -l unbound
 
 # Sourcing automatique du fichier de configuration
 if [ "$shell" = "bash" ]; then
