@@ -8,24 +8,23 @@ shell=$(basename "$SHELL")
 # Vérifier le shell et sourcer le fichier de configuration approprié
 if [ "$shell" = "bash" ]; then
     # Vérifier si la ligne existe déjà dans .bashrc
-    if ! grep -q "alias wwunbound='cd && rm -f unbound_G.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_G.sh && chmod +x unbound_G.sh && ./unbound_G.sh'" ~/.bashrc; then
-        echo "alias wwunbound='cd && rm -f unbound_G.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_G.sh && chmod +x unbound_G.sh && ./unbound_G.sh'" >> ~/.bashrc
+    if ! grep -q "alias wunbound='cd && rm -f unbound.sh && wget https://git.crdr.ovh/greg/pub/raw/branch/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.bashrc; then
+        echo "alias wunbound='cd && rm -f unbound.sh && wget https://git.crdr.ovh/greg/pub/raw/branch/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.bashrc
     fi
     source ~/.bashrc
 elif [ "$shell" = "zsh" ]; then
     # Vérifier si la ligne existe déjà dans .zshrc
-    if ! grep -q "alias wwunbound='cd && rm -f unbound_G.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_G.sh && chmod +x unbound_G.sh && ./unbound_G.sh'" ~/.zshrc; then
-        echo "alias wwunbound='cd && rm -f unbound_G.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_G.sh && chmod +x unbound_G.sh && ./unbound_G.sh'" >> ~/.zshrc
+    if ! grep -q "alias wunbound='cd && rm -f unbound.sh && wget https://git.crdr.ovh/greg/pub/raw/branch/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.zshrc; then
+        echo "alias wunbound='cd && rm -f unbound.sh && wget https://git.crdr.ovh/greg/pub/raw/branch/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.zshrc
     fi
     source ~/.zshrc
 fi
-
 
 # Mise à jour du système
 apt update && apt upgrade -y && apt autoremove -y
 
 # Installation d'Unbound
-apt install wget unbound -y
+apt install wget unbound apparmor -y
 
 # Arrêt du service Unbound
 systemctl stop unbound
@@ -37,17 +36,26 @@ IP_machine=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
 cat << EOF > /etc/unbound/unbound.conf.d/config.conf
 server:
   interface: $IP_machine
+  interface: ::0
   port: 53
   do-ip4: yes
   do-ip6: yes
   do-udp: yes
   do-tcp: yes
+  prefer-ip6: no
   # Set number of threads to use
-  num-threads: 1
-  access-control: 0.0.0.0/0 allow       ## mettre votre reseau local ipv4
-  access-control: ::/64 allow           ## mettre votre reseau local ipv6
-  #access-control: 0.0.0.0/0 refuse     ## décommenter si reseau local renseigné
-  #access-control: ::/0 refuse          ## décommenter si reseau local renseigné
+  num-threads: 4
+  access-control: 10.0.0.0/8 allow
+  access-control: 2a01:e0a:477:9df0::1/64 allow
+  access-control: 2a01:e0a:477:9df1::1/64 allow
+  access-control: 2a01:e0a:477:9df2::1/64 allow
+  access-control: 2a01:e0a:477:9df3::1/64 allow
+  access-control: 2a01:e0a:477:9df4::1/64 allow
+  access-control: 2a01:e0a:477:9df5::1/64 allow
+  access-control: 2a01:e0a:477:9df6::1/64 allow
+  access-control: 2a01:e0a:477:9df7::1/64 allow
+  access-control: 0.0.0.0/0 refuse
+  access-control: ::/0 refuse
   do-daemonize: yes
   verbosity: 3
   # Hide DNS Server info
@@ -90,6 +98,8 @@ root-hints: "/var/lib/unbound/root.hints"
 #  forward-addr: 1.0.0.1
 #  forward-addr: 2606:4700:4700::1111
 #  forward-addr: 2606:4700:4700::1001
+#  forward-addr: https://dns.cloudflare.com/dns-query
+#  forward-addr: tls://1dot1dot1dot1.cloudflare-dns.com
 
 ##je bloque cetaines pubs
 local-zone: "doubleclick.net" redirect
@@ -128,15 +138,6 @@ if [ -z "$IP_machine" ]; then
   exit 1
 fi
 
-# Modifier le fichier /etc/resolv.conf
-sed -i "1s/.*/domain server/" /etc/resolv.conf
-sed -i "2s/.*/search server/" /etc/resolv.conf
-sed -i "3s/.*/nameserver $IP_machine/" /etc/resolv.conf
-
-# Ajouter les autres serveurs DNS à la fin du fichier
-echo "nameserver 1.1.1.1" >> /etc/resolv.conf
-echo "#nameserver 1.0.0.1" >> /etc/resolv.conf
-
 # correction de bug
 echo "/var/log/unbound/unbound.log rw," > /etc/apparmor.d/local/usr.sbin.unbound
 apparmor_parser -r /etc/apparmor.d/usr.sbin.unbound
@@ -150,6 +151,20 @@ apparmor_parser -r /etc/apparmor.d/usr.sbin.unbound
       # Applique les modifications du fichier sysctl.conf
       sysctl -p
   fi
+
+# Modifier le fichier /etc/resolv.conf
+sed -i "1s/.*/domain server/" /etc/resolv.conf
+sed -i "2s/.*/search server/" /etc/resolv.conf
+sed -i "3s/.*/nameserver $IP_machine/" /etc/resolv.conf
+sed -i '4d' /etc/resolv.conf
+sed -i '5d' /etc/resolv.conf
+sed -i '6d' /etc/resolv.conf
+sed -i '7d' /etc/resolv.conf
+sed -i '8d' /etc/resolv.conf
+sed -i '9d' /etc/resolv.conf
+# Ajouter les autres serveurs DNS à la fin du fichier
+# echo "#nameserver 1.1.1.1" >> /etc/resolv.conf
+# echo "#nameserver 1.0.0.1" >> /etc/resolv.conf
 
 # Démarrage du service Unbound
 systemctl start unbound
