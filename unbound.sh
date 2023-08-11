@@ -46,14 +46,8 @@ server:
   # Set number of threads to use
   num-threads: 4
   access-control: 10.0.0.0/8 allow
-  access-control: 2a01:e0a:477:9df0::1/64 allow
-  access-control: 2a01:e0a:477:9df1::1/64 allow
-  access-control: 2a01:e0a:477:9df2::1/64 allow
-  access-control: 2a01:e0a:477:9df3::1/64 allow
-  access-control: 2a01:e0a:477:9df4::1/64 allow
-  access-control: 2a01:e0a:477:9df5::1/64 allow
-  access-control: 2a01:e0a:477:9df6::1/64 allow
-  access-control: 2a01:e0a:477:9df7::1/64 allow
+  access-control: 172.16.0.0/12 allow
+  access-control: 192.168.0.0/16 allow
   access-control: 0.0.0.0/0 refuse
   access-control: ::/0 refuse
   do-daemonize: yes
