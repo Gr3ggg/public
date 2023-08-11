@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# copier/coller ds votre Shell: cd && rm -f unbound_G.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound_G.sh && chmod +x unbound_G.sh && ./unbound_G.sh
+# copier/coller ds votre Shell: cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh
 
 # Déterminer le shell actuel
 shell=$(basename "$SHELL")
