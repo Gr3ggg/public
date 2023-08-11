@@ -48,6 +48,9 @@ server:
   access-control: 10.0.0.0/8 allow
   access-control: 172.16.0.0/12 allow
   access-control: 192.168.0.0/16 allow
+  access-control: fe80::/10 allow
+  access-control: fc00::/7 allow
+  access-control: fd00::/8 allow
   access-control: 0.0.0.0/0 refuse
   access-control: ::/0 refuse
   do-daemonize: yes
