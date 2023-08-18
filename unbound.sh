@@ -9,14 +9,22 @@ apt install wget unbound apparmor -y
 # Arrêt du service Unbound
 systemctl stop unbound
 
-# Récupérer l'adresse IP de la machine
-IP_machine=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+# Récupérer l'adresse IPV4 de la machine
+IP_MACHINEV4=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+# Récupérer l'adresse IPV6 de la machine
+IP_MACHINEV6=$(ip -6 addr show eth0 | grep -oP '(?<=inet6\s)(?!fe80)[\da-fA-F:]+(::\d+)?' | grep -v fe80)
 
 # Configuration d'Unbound
 cat << EOF > /etc/unbound/unbound.conf.d/config.conf
 server:
-  interface: $IP_machine
-  interface: ::0
+    # Adresses IP auxquelles Unbound écoutera les requêtes
+    interface: $IP_MACHINEV4    # IPv4
+    interface: $IP_MACHINEV6    # IPv6
+
+    # Adresses IP auxquelles Unbound enverra les réponses
+    outgoing-interface: $IP_MACHINEV4    # IPv4
+    outgoing-interface: $IP_MACHINEV6    # IPv6
+
   port: 53
   do-ip4: yes
   do-ip6: yes
@@ -107,10 +115,11 @@ mkdir /var/log/unbound
 chown unbound:unbound /var/log/unbound
 
 # Récupérer l'adresse IP de la machine
-IP_machine=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+IP_MACHINEV4=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+IP_MACHINEV6=$(ip -6 addr show eth0 | grep -oP '(?<=inet6\s)(?!fe80)[\da-fA-F:]+(::\d+)?' | grep -v fe80)
 
 # Vérifier si l'adresse IP est vide
-if [ -z "$IP_machine" ]; then
+if [ -z "$IP_MACHINEV4" ]; then
   echo "Impossible de récupérer l'adresse IP de la machine."
   exit 1
 fi
@@ -132,8 +141,8 @@ apparmor_parser -r /etc/apparmor.d/usr.sbin.unbound
 # Modifier le fichier /etc/resolv.conf
 sed -i "1s/.*/domain server/" /etc/resolv.conf
 sed -i "2s/.*/search server/" /etc/resolv.conf
-sed -i "3s/.*/nameserver $IP_machine/" /etc/resolv.conf
-sed -i '4d' /etc/resolv.conf
+sed -i "3s/.*/nameserver $IP_MACHINEV4/" /etc/resolv.conf
+sed -i "4s/.*/nameserver $IP_MACHINEV6/" /etc/resolv.conf
 sed -i '5d' /etc/resolv.conf
 sed -i '6d' /etc/resolv.conf
 sed -i '7d' /etc/resolv.conf
