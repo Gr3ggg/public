@@ -1,25 +1,5 @@
 #!/bin/bash
 
-# copier/coller ds votre Shell: cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh
-
-# Déterminer le shell actuel
-shell=$(basename "$SHELL")
-
-# Vérifier le shell et sourcer le fichier de configuration approprié
-if [ "$shell" = "bash" ]; then
-    # Vérifier si la ligne existe déjà dans .bashrc
-    if ! grep -q "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.bashrc; then
-        echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.bashrc
-    fi
-    source ~/.bashrc
-elif [ "$shell" = "zsh" ]; then
-    # Vérifier si la ligne existe déjà dans .zshrc
-    if ! grep -q "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" ~/.zshrc; then
-        echo "alias wunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'" >> ~/.zshrc
-    fi
-    source ~/.zshrc
-fi
-
 # Mise à jour du système
 apt update && apt upgrade -y && apt autoremove -y
 

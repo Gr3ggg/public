@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# script pour Debian
-# copier/coller ds votre Shell: cd && rm -f docker.sh && wget https://github.com/Gr3ggg/public/raw/main/docker.sh && chmod +x docker.sh && ./docker.sh
-
 # Mettre à jour le système et installer Docker
 sudo apt update && sudo apt upgrade -y
 curl -sSL https://get.docker.com | sh

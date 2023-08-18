@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# script pour Debian 
-# copier/coller ds votre Shell: rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh
-
 # Vérification des dépendances
 echo "Installation des dépendances..."
 if [[ $(command -v git) && $(command -v zsh) && $(command -v curl) ]]; then

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# script pour Debian
-# copier/coller ds votre Shell: cd && rm -f npm.sh && wget https://github.com/Gr3ggg/public/raw/main/npm.sh && chmod +x npm.sh && ./npm.sh
-
 # Vérifier si Docker est installé
 if ! command -v docker &> /dev/null; then
     echo "Docker n'est pas installé. Veuillez installer Docker avant de continuer."

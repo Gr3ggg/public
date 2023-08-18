@@ -1,7 +1,5 @@
 #!/bin/sh 
 
-# copier/coller ds votre Shell: cd && rm -f vm_prepa.sh && wget https://github.com/Gr3ggg/public/raw/main/vm_prepa.sh && chmod +x vm_prepa.sh && ./vm_prepa.sh
-
 # en root
 
 apt update && apt upgrade -y && apt autoremove -y
