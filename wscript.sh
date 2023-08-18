@@ -37,20 +37,22 @@ scripts=(
     ["5"]=" unbound|https://raw.githubusercontent.com/Gr3ggg/public/main/unbound.sh"
     ["6"]=" wireguard|https://raw.githubusercontent.com/Gr3ggg/public/main/wireguard.sh"
     ["7"]=" openvpn|https://raw.githubusercontent.com/Gr3ggg/public/main/opnvpn.sh"
+    ["8"]=" nginx|https://raw.githubusercontent.com/Gr3ggg/public/main/nginx.sh"
 
-    ["8"]=" flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
+    ["9"]=" flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
 
-    ["9"]=" docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
+    ["10"]=" docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
 
-    ["10"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
-    ["11"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
-    ["12"]="mariadb_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/mariadb.sh"
-    ["13"]="bookstack_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/bookstack.sh"
-    ["14"]="memos_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/memos.sh"
-    ["15"]="watchtower_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/watchtower.sh"
-    ["16"]="speedtest_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/speedtest.sh"
-    ["17"]="wg-easy_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wg-easy.sh"
-    ["18"]="wikijs_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wikijs.sh"
+    ["11"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
+    ["12"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
+    ["13"]="mariadb_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/mariadb.sh"
+    ["14"]="bookstack_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/bookstack.sh"
+    ["15"]="memos_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/memos.sh"
+    ["16"]="watchtower_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/watchtower.sh"
+    ["17"]="speedtest_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/speedtest.sh"
+    ["18"]="wg-easy_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wg-easy.sh"
+    ["19"]="wikijs_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wikijs.sh"
+    ["20"]=" nextcloud_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/nextcloud.sh"
 )
 
 # Fonction pour exécuter un script depuis une URL
