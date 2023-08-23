@@ -63,7 +63,7 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 setopt EXTENDED_HISTORY
-HISTFILE=/$HOME/.zsh_history
+HISTFILE=~/.zsh_history
 HISTSIZE=999999
 SAVEHIST=999999
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S"
@@ -99,16 +99,26 @@ fi
 #    echo -n "${ip:-N/A}"
 #}
 # pour debian
+#prompt_ipmachine() {
+#    local ip=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
+#    echo -n "${ip:-N/A}"
+#}
+
+# Pour Debian
 prompt_ipmachine() {
-    local ip=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
-    echo -n "${ip:-N/A}"
+    local ipv4=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
+    local ipv6=$(ip -o -6 addr list eth0 | awk '{print $4}' | grep -v '^fe80' | cut -d'/' -f1)
+    
+    echo -n "${ipv4:-N/A} | ${ipv6:-N/A}"
 }
+
+
 
 prompt_ipclient() {
     echo "${SSH_CLIENT%% *}" | awk '{$1=$1};1'
 }
 
-    #les USERs  en rouge ou vert suivant le user
+    # les USERs  en rouge ou vert suivant le user
 
 #    if [[ $EUID -eq 0 ]]; then
 #       PROMPT=$'%F{cyan}╭───────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -[%F{red}$(prompt_ipmachine)%F{cyan}]-[%F{magenta}$(prompt_ipclient)%F{cyan}]-%F{red}> %F{cyan}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}]\n╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
@@ -116,7 +126,7 @@ prompt_ipclient() {
 #       PROMPT=$'%F{cyan}╭───────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -[%F{green}$(prompt_ipmachine)%F{cyan}]-[%F{magenta}$(prompt_ipclient)%F{cyan}]-%F{green}> %F{cyan}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{cyan}]\n╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
 #    fi
 
-        #les USERs & crochets en rouge ou vert suivant le user
+        # les USERs & crochets en rouge ou vert suivant le user
 
 #        if [[ $EUID -eq 0 ]]; then
 #          PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -%F{red}[%F{black}$(prompt_ipmachine)%F{red}]%F{cyan}-%F{red}[%F{magenta}%D{%d/%m/%Y %H:%M:%S}%F{red}]%F{cyan}-%F{red}[%F{magenta}$(prompt_ipclient)%F{red}]%F{cyan}- %F{red}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{red}]\n%F{cyan}╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
@@ -124,7 +134,7 @@ prompt_ipclient() {
 #          PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -%F{green}[%F{black}$(prompt_ipmachine)%F{green}]%F{cyan}-%F{green}[%F{magenta}%D{%d/%m/%Y %H:%M:%S}%F{green}]%F{cyan}-%F{green}[%F{magenta}$(prompt_ipclient)%F{green}]%F{cyan}- %F{green}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{green}]\n%F{cyan}╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
 #        fi
 
-              #les USERs & IPs & crochets en rouge ou vert suivant le user
+              # les USERs & IPs & crochets en rouge ou vert suivant le user
 
 #              if [[ $EUID -eq 0 ]]; then
 #                PROMPT=$'%F{cyan}╭──────────────${debian_chroot:+($debian_chroot)──}(%B%(#.%F{red}%n.%F{green}%n)%F{green}@%F{blue}%m%b%F{cyan}) -%F{red}[%F{red}$(prompt_ipmachine)%F{red}]%F{cyan}-%F{red}[%F{magenta}%D{%d/%m/%Y %H:%M:%S}%F{red}]%F{cyan}-%F{red}[%F{magenta}$(prompt_ipclient)%F{red}]%F{cyan}- %F{red}[%B%F{yellow}%(6~.%-1~/…/%4~.%5~)%b%F{red}]\n%F{cyan}╰───%B%(#.%F{red}▶.%F{green}▶)%b%F{reset}'
@@ -141,7 +151,7 @@ prompt_ipclient() {
                     fi
 
 
-      RPROMPT=$'%F{cyan}[%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)%F{cyan}]%F{cyan}[%F{magenta}%D{%d/%m/%Y %H:%M}%F{cyan}]'
+        RPROMPT=$'%F{cyan}[%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)%F{cyan}]%F{cyan}[%F{magenta}%D{%d/%m/%Y %H:%M}%F{cyan}]'
 
 
     # enable syntax-highlighting
