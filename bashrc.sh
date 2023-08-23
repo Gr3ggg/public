@@ -97,8 +97,7 @@ alias ll='ls -Ahl'
 alias la='ls -ahl'
 alias l='ls -CF'
 
-alias qmdestroy='function _qmdestroyrange() { for ((i=\$1; i<=\$2; i++)); do qm destroy 1\$i; done }; _qmdestroyrange'
-alias qmstop='function _qmstoprange() { for ((i=\$1; i<=\$2; i++)); do qm stop 1\$i; done }; _qmstoprange'
+alias wscript='cd && rm -f wscript.sh && wget https://raw.githubusercontent.com/Gr3ggg/public/main/wscript.sh && chmod +x wscript.sh && ./wscript.sh'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

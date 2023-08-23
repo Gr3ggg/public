@@ -226,9 +226,7 @@ prompt_ipclient() {
 alias upd='apt update'
 alias upg='apt upgrade -y'
 alias upa='apt update -y && apt upgrade -y && apt autoremove -y'
-alias wwzsh='rm -f installohmyzsh.sh && wget https://github.com/Gr3ggg/public/raw/main/installohmyzsh.sh && chmod +x installohmyzsh.sh && ./installohmyzsh.sh'
-alias wwunbound='cd && rm -f unbound.sh && wget https://github.com/Gr3ggg/public/raw/main/unbound.sh && chmod +x unbound.sh && ./unbound.sh'
-
+alias wscript='cd && rm -f wscript.sh && wget https://raw.githubusercontent.com/Gr3ggg/public/main/wscript.sh && chmod +x wscript.sh && ./wscript.sh'
 EOF
 
 echo "L'installation de oh-my-zsh est terminée. Veuillez vous déconnecter et vous reconnecter pour utiliser zsh."
