@@ -33,26 +33,27 @@ scripts=(
     ["2"]=" sshd|https://raw.githubusercontent.com/Gr3ggg/public/main/sshd.sh"
     ["3"]=" bashrc|https://raw.githubusercontent.com/Gr3ggg/public/main/bashrc.sh"
     ["4"]=" installohmyzsh|https://raw.githubusercontent.com/Gr3ggg/public/main/installohmyzsh.sh"
+    ["5"]=" choix_du_shell|https://raw.githubusercontent.com/Gr3ggg/public/main/shell.sh"
 
-    ["5"]=" unbound|https://raw.githubusercontent.com/Gr3ggg/public/main/unbound.sh"
-    ["6"]=" wireguard|https://raw.githubusercontent.com/Gr3ggg/public/main/wireguard.sh"
-    ["7"]=" openvpn|https://raw.githubusercontent.com/Gr3ggg/public/main/opnvpn.sh"
-    ["8"]=" nginx|https://raw.githubusercontent.com/Gr3ggg/public/main/nginx.sh"
+    ["6"]=" unbound|https://raw.githubusercontent.com/Gr3ggg/public/main/unbound.sh"
+    ["7"]=" wireguard|https://raw.githubusercontent.com/Gr3ggg/public/main/wireguard.sh"
+    ["8"]=" openvpn|https://raw.githubusercontent.com/Gr3ggg/public/main/opnvpn.sh"
+    ["9"]=" nginx|https://raw.githubusercontent.com/Gr3ggg/public/main/nginx.sh"
 
-    ["9"]=" flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
+    ["10"]="flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
 
-    ["10"]=" docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
+    ["11"]="docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
 
-    ["11"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
-    ["12"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
-    ["13"]="mariadb_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/mariadb.sh"
-    ["14"]="bookstack_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/bookstack.sh"
-    ["15"]="memos_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/memos.sh"
-    ["16"]="watchtower_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/watchtower.sh"
-    ["17"]="speedtest_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/speedtest.sh"
-    ["18"]="wg-easy_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wg-easy.sh"
-    ["19"]="wikijs_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wikijs.sh"
-    ["20"]=" nextcloud_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/nextcloud.sh"
+    ["12"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
+    ["13"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
+    ["14"]="mariadb_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/mariadb.sh"
+    ["15"]="bookstack_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/bookstack.sh"
+    ["16"]="memos_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/memos.sh"
+    ["17"]="watchtower_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/watchtower.sh"
+    ["18"]="speedtest_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/speedtest.sh"
+    ["19"]="wg-easy_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wg-easy.sh"
+    ["20"]="wikijs_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wikijs.sh"
+    ["21"]="nextcloud_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/nextcloud.sh"
 )
 
 # Fonction pour exécuter un script depuis une URL
