@@ -2,13 +2,11 @@
 # public
 
 copier/coller ds votre Shell: 
-
 ```cd && rm -f wscript.sh && wget https://raw.githubusercontent.com/Gr3ggg/public/main/wscript.sh && chmod +x wscript.sh && ./wscript.sh```
 
 
 
 voici un aperçu :
-
 ```
 Choisissez une option :
 1  -▶ vm_prepa
@@ -34,3 +32,4 @@ Choisissez une option :
 21 -▶ nextcloud
 Entrez le numéro de votre choix (ou appuyez sur Entrée pour quitter) : 
 ```
+
