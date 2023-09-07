@@ -32,7 +32,7 @@ Choisissez une option :
 18 -▶ speedtest_docker
 19 -▶ wg-easy_docker
 20 -▶ wikijs_docker
-21 -▶ nextcloud
+21 -▶ nextcloud_docker
 Entrez le numéro de votre choix (ou appuyez sur Entrée pour quitter) : 
 ```
 
