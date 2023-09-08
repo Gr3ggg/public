@@ -1,8 +1,8 @@
 #!/bin/bash
 
 read -p "Entrez le mot de passe : " YOURPASSWORD
+read -p "Entrez votre IP PUBLIC : " IPPUBLIC
 
-IPPUBLIC=$(curl -s ifconfig.me)
 
 docker run -d \
     --name=wg-easy \
