@@ -105,14 +105,32 @@ fi
 #}
 
 # Pour Debian
+#prompt_ipmachine() {
+#    local ipv4=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
+#    local ipv6=$(ip -o -6 addr list eth0 | awk '{print $4}' | grep -v '^fe80' | cut -d'/' -f1)
+#    
+#    echo -n "${ipv4:-N/A} | ${ipv6:-N/A}"
+#}
+
 prompt_ipmachine() {
-    local ipv4=$(ip -o -4 addr list eth0 | awk '{print $4}' | cut -d'/' -f1)
-    local ipv6=$(ip -o -6 addr list eth0 | awk '{print $4}' | grep -v '^fe80' | cut -d'/' -f1)
+    local interface=""
     
-    echo -n "${ipv4:-N/A} | ${ipv6:-N/A}"
+    # Trouver l'interface réseau active
+    for iface in $(ip -o link show | awk -F': ' '{print $2}'); do
+        if [ "$iface" != "lo" ]; then
+            interface="$iface"
+            break
+        fi
+    done
+    
+    if [ -n "$interface" ]; then
+        local ipv4=$(ip -o -4 addr list "$interface" | awk '{print $4}' | cut -d'/' -f1)
+        local ipv6=$(ip -o -6 addr list "$interface" | awk '{print $4}' | grep -v '^fe80' | cut -d'/' -f1)
+        echo -n "${ipv4:-N/A} | ${ipv6:-N/A}"
+    else
+        echo "No active network interface found."
+    fi
 }
-
-
 
 prompt_ipclient() {
     echo "${SSH_CLIENT%% *}" | awk '{$1=$1};1'
