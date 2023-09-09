@@ -16,7 +16,14 @@ fi
 docker run -d \
     --name=speedtest \
     -v "$HOME/docker/speedtest:/config" \
-    -p 8181:80 \
+    -p 8765:80 \
+    -e TZ=Europe/Paris \
+    -e PGID=1000 \
+    -e PUID=1000 \
+    -e OOKLA_EULA_GDPR=true \
+    -l "logging-driver=json-file" \
+    -l "logging-opt max-file=10" \
+    -l "logging-opt max-size=200k" \
     --restart=unless-stopped \
     --network=npmproxy \
-    ghcr.io/alexjustesen/speedtest-tracker:latest
+    henrywhitaker3/speedtest-tracker
