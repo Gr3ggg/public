@@ -27,3 +27,4 @@ docker run -d \
     --restart=unless-stopped \
     --network=npmproxy \
     henrywhitaker3/speedtest-tracker
+
