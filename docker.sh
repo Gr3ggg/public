@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Mettre à jour le système et installer Docker
 sudo apt update && sudo apt upgrade -y

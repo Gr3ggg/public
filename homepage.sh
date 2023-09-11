@@ -12,5 +12,5 @@ if ! docker network inspect npmproxy &> /dev/null; then
     exit 1
 fi
 
-# Démarrer le conteneur it-tools
-docker run -d -p 8383:80 --network npmproxy --name it-tools --restart unless-stopped corentinth/it-tools:latest
+# Démarrer le conteneur homepage
+docker run -d -p 3000:3000 --network npmproxy -v /root/docker/homepage:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:latest
