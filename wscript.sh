@@ -42,18 +42,19 @@ scripts=(
 
     ["10"]="flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
 
-    ["11"]="docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
 
-    ["12"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
-    ["13"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
-    ["14"]="mariadb_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/mariadb.sh"
-    ["15"]="bookstack_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/bookstack.sh"
-    ["16"]="memos_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/memos.sh"
-    ["17"]="watchtower_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/watchtower.sh"
-    ["18"]="speedtest_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/speedtest.sh"
-    ["19"]="wg-easy_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wg-easy.sh"
-    ["20"]="wikijs_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wikijs.sh"
-    ["21"]="nextcloud_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/nextcloud.sh"
+    ["50"]="docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
+    ["51"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
+    ["52"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
+    ["53"]="mariadb_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/mariadb.sh"
+    ["54"]="bookstack_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/bookstack.sh"
+    ["55"]="memos_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/memos.sh"
+    ["56"]="watchtower_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/watchtower.sh"
+    ["57"]="speedtest_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/speedtest.sh"
+    ["58"]="wg-easy_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wg-easy.sh"
+    ["59"]="wikijs_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wikijs.sh"
+    ["60"]="nextcloud_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/nextcloud.sh"
+    ["61"]="homepage_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/homepage.sh"
 )
 
 # Fonction pour exécuter un script depuis une URL
