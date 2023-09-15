@@ -9,10 +9,12 @@ read choice
 case $choice in
     1)
         echo "Vous avez choisi Bash."
+        chsh -s /bin/bash   # Change le shell par défaut de l'utilisateur en Bash
         exec bash
         ;;
     2)
         echo "Vous avez choisi Zsh."
+        chsh -s /bin/zsh   # Change le shell par défaut de l'utilisateur en Zsh
         exec zsh
         ;;
     *)
