@@ -13,4 +13,4 @@ if ! docker network inspect npmproxy &> /dev/null; then
 fi
 
 # Démarrer le conteneur homepage
-docker run -d -p 3000:3000 --network npmproxy -v /root/docker/homepage:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:latest
+docker run -d -p 3000:3000 --network npmproxy --restart unless-stopped -v /root/docker/homepage:/app/config -v /var/run/docker.sock:/var/run/docker.sock ghcr.io/benphelps/homepage:latest
