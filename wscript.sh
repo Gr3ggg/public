@@ -29,20 +29,19 @@ fi
 
 declare -A scripts
 scripts=(
+    ["0"]="##### NON DOCKER #####"  # Ligne vide pour le saut de ligne souhaité
     ["1"]="vm_prepa|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa.sh"
     ["2"]="sshd|https://raw.githubusercontent.com/Gr3ggg/public/main/sshd.sh"
     ["3"]="bashrc|https://raw.githubusercontent.com/Gr3ggg/public/main/bashrc.sh"
     ["4"]="installohmyzsh|https://raw.githubusercontent.com/Gr3ggg/public/main/installohmyzsh.sh"
     ["5"]="choix_du_shell|https://raw.githubusercontent.com/Gr3ggg/public/main/shell.sh"
-
     ["6"]="unbound|https://raw.githubusercontent.com/Gr3ggg/public/main/unbound.sh"
     ["7"]="wireguard|https://raw.githubusercontent.com/Gr3ggg/public/main/wireguard.sh"
     ["8"]="openvpn|https://raw.githubusercontent.com/Gr3ggg/public/main/opnvpn.sh"
     ["9"]="nginx|https://raw.githubusercontent.com/Gr3ggg/public/main/nginx.sh"
-
     ["10"]="flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
 
-
+    ["49"]="##### DOCKER #####"  # Ligne vide pour le saut de ligne souhaité
     ["50"]="docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
     ["51"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
     ["52"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
