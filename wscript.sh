@@ -54,6 +54,8 @@ scripts=(
     ["59"]="wikijs_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/wikijs.sh"
     ["60"]="nextcloud_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/nextcloud.sh"
     ["61"]="homepage_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/homepage.sh"
+    ["62"]="password-pusher_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/password-pusher.sh"
+    ["63"]="stirling-pdf_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/stirling-pdf.sh"
 )
 
 # Fonction pour exécuter un script depuis une URL
