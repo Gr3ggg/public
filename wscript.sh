@@ -3,7 +3,6 @@
 # script pour Debian
 # copier/coller ds votre Shell: cd && rm -f wscript.sh && wget https://raw.githubusercontent.com/Gr3ggg/public/main/wscript.sh && chmod +x wscript.sh && ./wscript.sh
 
-
 # Déterminer le shell actuel
 shell=$(basename "$SHELL")
 # Vérifier si l'alias existe déjà
