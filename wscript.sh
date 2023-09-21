@@ -42,7 +42,7 @@ scripts=(
     ["10"]="flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
 
     ["49"]="##### DOCKER #####"  # Ligne vide pour le saut de ligne souhaité
-    ["50"]="docker|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
+    ["50"]="docker & portainer|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
     ["51"]="it-tools_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/it-tools.sh"
     ["52"]="npm_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/npm.sh"
     ["53"]="mariadb_docker|https://raw.githubusercontent.com/Gr3ggg/public/main/mariadb.sh"
