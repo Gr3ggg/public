@@ -17,7 +17,7 @@ docker run -d \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/Paris \
-  -e DB_TYPE=sqlite \ 
+  -e DB_TYPE=sqlite \
   -p 3000:3000 \
   -v /$HOME/docker/wikijs/config:/config \
   -v /$HOME/docker/wikijs/data:/data \
