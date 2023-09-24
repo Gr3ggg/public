@@ -1,5 +1,4 @@
 #!/bin/sh
-# https://github.com/Forceu/Gokapi/
 
 # Vérifier si Docker est installé
 if ! command -v docker &> /dev/null; then
