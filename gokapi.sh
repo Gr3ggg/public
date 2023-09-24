@@ -14,4 +14,4 @@ if ! docker network inspect npmproxy &> /dev/null; then
 fi
 
 # Démarrer le conteneur gokapi
-docker run -d -p 53842:53842 --network npmproxy --name gokapi -v /root/docker/gokapi/gokapi-data:/app/data -v /root/docker/gokapi/gokapi-config:/app/config f0rc3/gokapi:latest
+docker run -d -p 53842:53842 --network npmproxy --name gokapi -v /root/docker/gokapi/data:/app/data -v /root/docker/gokapi/config:/app/config f0rc3/gokapi:latest
