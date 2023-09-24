@@ -4,7 +4,7 @@
 
 apt update && apt upgrade -y && apt autoremove -y
 
-apt install -y htop sudo rsync nload git screen unzip vim zsh curl gnupg2 qemu-guest-agent cloud-init
+apt install -y htop sudo rsync nload git screen tree unzip vim zsh curl gnupg2 qemu-guest-agent cloud-init
 
 ############################################
 
