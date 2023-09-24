@@ -136,6 +136,7 @@ flarum_packages=(
     "clarkwinkelmann/flarum-ext-mass-actions"
     "clarkwinkelmann/flarum-ext-username-blacklist"
     "datlechin/flarum-birthdays:*"
+    "datlechin/flarum-signup-button:*"
     "fof/ban-ips:*"
     "fof/bbcode-details"
     "fof/custom-footer:*"
