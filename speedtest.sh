@@ -12,19 +12,32 @@ if ! docker network inspect npmproxy &> /dev/null; then
     exit 1
 fi
 
-# Lance le container speedtest
-docker run -d \
-    --name=speedtest \
-    -v "$HOME/docker/speedtest:/config" \
-    -p 8765:80 \
-    -e TZ=Europe/Paris \
-    -e PGID=1000 \
-    -e PUID=1000 \
-    -e OOKLA_EULA_GDPR=true \
-    -l "logging-driver=json-file" \
-    -l "logging-opt max-file=10" \
-    -l "logging-opt max-size=200k" \
-    --restart=unless-stopped \
-    --network=npmproxy \
-    henrywhitaker3/speedtest-tracker
+# Exécutez le conteneur de base de données MariaDB
+docker run -d --name db-speedtest-tracker --network npmproxy \
+    -e MYSQL_DATABASE=speedtest_tracker \
+    -e MYSQL_USER=speedyy \
+    -e MYSQL_PASSWORD=passsword \
+    -e MYSQL_RANDOM_ROOT_PASSWORD=true \
+    -v /root/docker/speedtest-tracker/speedtest-db:/var/lib/mysql \
+    mariadb:10
 
+# Attendez quelques secondes pour la base de données MariaDB pour démarrer complètement
+sleep 10
+
+# Exécutez le conteneur principal Speedtest Tracker
+docker run -d --name speedtest-tracker --network npmproxy \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    -e DB_CONNECTION=mysql \
+    -e DB_HOST=db \
+    -e DB_PORT=3306 \
+    -e DB_DATABASE=speedtest_tracker \
+    -e DB_USERNAME=speedyy \
+    -e DB_PASSWORD=passsword \
+    -e TZ=Europe/Paris \
+    -p 8181:80 \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /root/docker/speedtest-tracker/config:/config \
+    -v /root/docker/speedtest-tracker/web:/etc/ssl/web \
+    --restart unless-stopped \
+    ghcr.io/alexjustesen/speedtest-tracker:latest
