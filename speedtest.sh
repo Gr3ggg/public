@@ -13,7 +13,7 @@ if ! docker network inspect npmproxy &> /dev/null; then
 fi
 
 # Exécutez le conteneur de base de données MariaDB
-docker run -d --name db-speedtest-tracker --network npmproxy \
+docker run -d --name speedtest-tracker-db --network npmproxy \
     -e MYSQL_DATABASE=speedtest_tracker \
     -e MYSQL_USER=speedyy \
     -e MYSQL_PASSWORD=passsword \
