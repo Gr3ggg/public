@@ -77,15 +77,6 @@ server:
 
 root-hints: "/var/lib/unbound/root.hints"
 
-#forward-zone:
-#  name: "."
-#  forward-addr: 1.1.1.1
-#  forward-addr: 1.0.0.1
-#  forward-addr: 2606:4700:4700::1111
-#  forward-addr: 2606:4700:4700::1001
-#  forward-addr: https://dns.cloudflare.com/dns-query
-#  forward-addr: tls://1dot1dot1dot1.cloudflare-dns.com
-
 ##je bloque cetaines pubs
 local-zone: "doubleclick.net" redirect
 local-data: "doubleclick.net A 127.0.0.1"
@@ -101,6 +92,17 @@ local-zone: "adserver.yahoo.com" redirect
 local-data: "adserver.yahoo.com A 127.0.0.1"
 local-zone: "ask.com" redirect
 local-data: "ask.com A 127.0.0.1"
+
+#forward-zone:
+#  name: "."
+#  forward-addr: 1.1.1.1@853
+#  forward-addr: 1.0.0.1@853
+#  forward-addr: 2606:4700:4700::1111
+#  forward-addr: 2606:4700:4700::1001
+#  forward-addr: https://dns.cloudflare.com/dns-query
+#  forward-addr: tls://1dot1dot1dot1.cloudflare-dns.com
+#  forward-addr: https://security.cloudflare-dns.com/dns-query
+#  forward-addr: tls://security.cloudflare-dns.com
 
 EOF
 
