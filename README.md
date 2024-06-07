@@ -1,4 +1,4 @@
-# hello github 
+# hello :-)
 # public
 
 copier/coller ds votre Shell: 
