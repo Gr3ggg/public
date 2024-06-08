@@ -4,7 +4,7 @@
 apt update && apt upgrade -y && apt autoremove -y
 
 # Installation d'Unbound
-apt install wget unbound apparmor -y
+apt install wget curl unbound apparmor -y
 
 # Arrêt du service Unbound
 systemctl stop unbound
