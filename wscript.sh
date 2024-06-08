@@ -26,7 +26,7 @@ else
     echo "L'alias $alias_name existe déjà dans le fichier $config_file."
 fi
 
-apt install curl -y
+apt update && apt full-upgrade -y && apt autoremove -y && apt install curl -y
 
 declare -A scripts
 scripts=(
