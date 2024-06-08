@@ -26,6 +26,8 @@ else
     echo "L'alias $alias_name existe déjà dans le fichier $config_file."
 fi
 
+apt install curl -y
+
 declare -A scripts
 scripts=(
     ["0"]="##### NON DOCKER #####"  # Ligne vide pour le saut de ligne souhaité
