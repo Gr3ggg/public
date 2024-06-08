@@ -145,8 +145,8 @@ sed -i "1s/.*/domain server/" /etc/resolv.conf
 sed -i "2s/.*/search server/" /etc/resolv.conf
 sed -i "3s/.*/nameserver $IP_MACHINEV4/" /etc/resolv.conf
 sed -i "4s/.*/nameserver $IP_MACHINEV6/" /etc/resolv.conf
-sed -i '5d' /etc/resolv.conf
-sed -i '6d' /etc/resolv.conf
+sed -i "5s/.*/#nameserver 1.1.1.1/" /etc/resolv.conf
+sed -i "6s/.*/#nameserver 1.0.0.1/" /etc/resolv.conf
 sed -i '7d' /etc/resolv.conf
 sed -i '8d' /etc/resolv.conf
 sed -i '9d' /etc/resolv.conf
