@@ -141,18 +141,15 @@ apparmor_parser -r /etc/apparmor.d/usr.sbin.unbound
   fi
 
 # Modifier le fichier /etc/resolv.conf
-sed -i "1s/.*/domain server/" /etc/resolv.conf
-sed -i "2s/.*/search server/" /etc/resolv.conf
-sed -i "3s/.*/nameserver $IP_MACHINEV4/" /etc/resolv.conf
-sed -i "4s/.*/nameserver $IP_MACHINEV6/" /etc/resolv.conf
-sed -i "5s/.*/#nameserver 1.1.1.1/" /etc/resolv.conf
-sed -i "6s/.*/#nameserver 1.0.0.1/" /etc/resolv.conf
-sed -i '7d' /etc/resolv.conf
-sed -i '8d' /etc/resolv.conf
-sed -i '9d' /etc/resolv.conf
-# Ajouter les autres serveurs DNS à la fin du fichier
-# echo "#nameserver 1.1.1.1" >> /etc/resolv.conf
-# echo "#nameserver 1.0.0.1" >> /etc/resolv.conf
+rm /etc/resolv.conf
+cat << EOF > /etc/resolv.conf
+domain server
+search server
+nameserver $IP_MACHINEV4
+nameserver $IP_MACHINEV6
+#nameserver 1.1.1.1
+#nameserver 1.0.0.1
+EOF
 
 # Démarrage du service Unbound
 systemctl start unbound
