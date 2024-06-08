@@ -42,7 +42,7 @@ server:
   access-control: 0.0.0.0/0 refuse
   access-control: ::/0 refuse
   do-daemonize: yes
-  verbosity: 3
+  verbosity: 1
   # Hide DNS Server info
   hide-identity: yes
   hide-version: yes
