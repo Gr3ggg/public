@@ -19,9 +19,8 @@ sed -n '1,4p' /etc/network/interfacesold > /etc/network/interfaces
 # disable_root: false
 mv /etc/cloud/cloud.cfg /etc/cloud/cloudold.cfg
 sed -i "s/disable_root: true/disable_root: false/g" "/etc/cloud/cloudold.cfg"
-#sed -n '1,/distro: debian/p; /# Other config here will be given to the distro class and\/or path classes/,$p' "/etc/cloud/cloudold.cfg" > "/etc/cloud/cloud.cfg"
-sed -n '1,/distro: debian/p' "/etc/cloud/cloudold.cfg" > "/etc/cloud/cloud.cfg"
-sed -n '/# Other config here will be given to the distro class and\/or path classes/,$p' "/etc/cloud/cloudold.cfg" >> "/etc/cloud/cloud.cfg"
+sed -n '1,/distro: debian/p; /# Other config here will be given to the distro class and\/or path classes/,$p' "/etc/cloud/cloudold.cfg" > "/etc/cloud/cloud.cfg"
+
 ############################################
 
 # verifier si on peut ssh directement avec ROOT et ensuite :
