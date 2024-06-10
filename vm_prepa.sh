@@ -8,7 +8,6 @@ apt install -y htop sudo rsync nload git screen tree unzip vim zsh curl gnupg2 q
 
 ############################################
 
-# sed -i "s/^PermitRootLogin .*/PermitRootLogin yes/g" "/etc/ssh/sshd_config"
 sed -i -E "s/^#?PermitRootLogin\s+.*/PermitRootLogin yes/" "/etc/ssh/sshd_config"
 
 ############################################
