@@ -9,18 +9,19 @@ apt install -y htop sudo rsync nload git screen tree unzip vim zsh curl gnupg2 q
 ############################################
 
 # sed -i "s/^PermitRootLogin .*/PermitRootLogin yes/g" "/etc/ssh/sshd_config"
-sed -i -E "s/^#?PermitRootLogin .*/PermitRootLogin yes/" "/etc/ssh/sshd_config"
+sed -i -E "s/^#?PermitRootLogin\s+.*/PermitRootLogin yes/" "/etc/ssh/sshd_config"
 
 ############################################
 mv /etc/network/interfaces /etc/network/interfacesold
-sed -n '1,4p' "/etc/network/interfacesold" > "/etc/network/interfaces"
+sed -n '1,4p' /etc/network/interfacesold > /etc/network/interfaces
 
 ############################################
 # disable_root: false
 mv /etc/cloud/cloud.cfg /etc/cloud/cloudold.cfg
 sed -i "s/disable_root: true/disable_root: false/g" "/etc/cloud/cloudold.cfg"
-sed -n '1,/distro: debian/p; /# Other config here will be given to the distro class and\/or path classes/,$p' "/etc/cloud/cloudold.cfg" > "/etc/cloud/cloud.cfg"
-
+#sed -n '1,/distro: debian/p; /# Other config here will be given to the distro class and\/or path classes/,$p' "/etc/cloud/cloudold.cfg" > "/etc/cloud/cloud.cfg"
+sed -n '1,/distro: debian/p' "/etc/cloud/cloudold.cfg" > "/etc/cloud/cloud.cfg"
+sed -n '/# Other config here will be given to the distro class and\/or path classes/,$p' "/etc/cloud/cloudold.cfg" >> "/etc/cloud/cloud.cfg"
 ############################################
 
 # verifier si on peut ssh directement avec ROOT et ensuite :
