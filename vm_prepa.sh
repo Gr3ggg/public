@@ -29,7 +29,7 @@ deluser --remove-home user
 
 ############################################
 
-sed -i "s/^GRUB_TIMEOUT .*/GRUB_TIMEOUT=1/g" "/etc/default/grub"
+sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
 update-grub
 
 poweroff
