@@ -18,7 +18,7 @@ docker run -d --name speedtest-tracker-db --network npmproxy \
     -e MYSQL_USER=speedyy \
     -e MYSQL_PASSWORD=passsword \
     -e MYSQL_RANDOM_ROOT_PASSWORD=true \
-    -v /root/docker/speedtest-tracker/speedtest-db:/var/lib/mysql \
+    -v /$HOME/docker/speedtest-tracker/speedtest-db:/var/lib/mysql \
     mariadb:10
 
 # Attendez quelques secondes pour la base de données MariaDB pour démarrer complètement
@@ -37,7 +37,7 @@ docker run -d --name speedtest-tracker --network npmproxy \
     -e TZ=Europe/Paris \
     -p 8181:80 \
     -v /etc/localtime:/etc/localtime:ro \
-    -v /root/docker/speedtest-tracker/config:/config \
-    -v /root/docker/speedtest-tracker/web:/etc/ssl/web \
+    -v /$HOME/docker/speedtest-tracker/config:/config \
+    -v /$HOME/docker/speedtest-tracker/web:/etc/ssl/web \
     --restart unless-stopped \
     ghcr.io/alexjustesen/speedtest-tracker:latest
