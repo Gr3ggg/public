@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Vérifier si Docker est installé
 if ! command -v docker &> /dev/null; then
