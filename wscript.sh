@@ -31,8 +31,8 @@ apt update && apt full-upgrade -y && apt install curl -y
 declare -A scripts
 scripts=(
     ["0"]="##### NON DOCKER #####"  # Ligne vide pour le saut de ligne souhaité
-    ["1"]="vm_prepa|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa_root.sh"
-    ["2"]="vm_prepa|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa_user.sh"
+    ["1"]="vm_prepa_root|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa_root.sh"
+    ["2"]="vm_prepa_user|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa_user.sh"
     ["3"]="sshd|https://raw.githubusercontent.com/Gr3ggg/public/main/sshd.sh"
     ["4"]="bashrc|https://raw.githubusercontent.com/Gr3ggg/public/main/bashrc.sh"
     ["5"]="installohmyzsh|https://raw.githubusercontent.com/Gr3ggg/public/main/installohmyzsh.sh"
