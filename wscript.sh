@@ -31,16 +31,17 @@ apt update && apt full-upgrade -y && apt install curl -y
 declare -A scripts
 scripts=(
     ["0"]="##### NON DOCKER #####"  # Ligne vide pour le saut de ligne souhaité
-    ["1"]="vm_prepa|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa.sh"
-    ["2"]="sshd|https://raw.githubusercontent.com/Gr3ggg/public/main/sshd.sh"
-    ["3"]="bashrc|https://raw.githubusercontent.com/Gr3ggg/public/main/bashrc.sh"
-    ["4"]="installohmyzsh|https://raw.githubusercontent.com/Gr3ggg/public/main/installohmyzsh.sh"
-    ["5"]="choix_du_shell|https://raw.githubusercontent.com/Gr3ggg/public/main/shell.sh"
-    ["6"]="unbound|https://raw.githubusercontent.com/Gr3ggg/public/main/unbound.sh"
-    ["7"]="wireguard|https://raw.githubusercontent.com/Gr3ggg/public/main/wireguard.sh"
-    ["8"]="openvpn|https://raw.githubusercontent.com/Gr3ggg/public/main/opnvpn.sh"
-    ["9"]="nginx|https://raw.githubusercontent.com/Gr3ggg/public/main/nginx.sh"
-    ["10"]="flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
+    ["1"]="vm_prepa|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa_root.sh"
+    ["2"]="vm_prepa|https://raw.githubusercontent.com/Gr3ggg/public/main/vm_prepa_user.sh"
+    ["3"]="sshd|https://raw.githubusercontent.com/Gr3ggg/public/main/sshd.sh"
+    ["4"]="bashrc|https://raw.githubusercontent.com/Gr3ggg/public/main/bashrc.sh"
+    ["5"]="installohmyzsh|https://raw.githubusercontent.com/Gr3ggg/public/main/installohmyzsh.sh"
+    ["6"]="choix_du_shell|https://raw.githubusercontent.com/Gr3ggg/public/main/shell.sh"
+    ["7"]="unbound|https://raw.githubusercontent.com/Gr3ggg/public/main/unbound.sh"
+    ["8"]="wireguard|https://raw.githubusercontent.com/Gr3ggg/public/main/wireguard.sh"
+    ["9"]="openvpn|https://raw.githubusercontent.com/Gr3ggg/public/main/opnvpn.sh"
+    ["10"]="nginx|https://raw.githubusercontent.com/Gr3ggg/public/main/nginx.sh"
+    ["11"]="flarum|https://raw.githubusercontent.com/Gr3ggg/public/main/flarum.sh"
 
     ["49"]="##### DOCKER #####"  # Ligne vide pour le saut de ligne souhaité
     ["50"]="docker & portainer|https://raw.githubusercontent.com/Gr3ggg/public/main/docker.sh"
